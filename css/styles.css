@@ -1,0 +1,210 @@
+:root {
+    --very-light-grayish-blue: hsl(240, 78%, 98%);
+    --light-grayish-blue: hsl(234, 14%, 74%);
+    --grayish-blue: hsl(233, 13%, 49%);
+    --dark-grayish-blue: hsl(232, 13%, 33%);
+    --LinearGradient: linear-gradient(135deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+body {
+  background: var(--very-light-grayish-blue);
+  color: var(--dark-grayish-blue);
+  line-height: 1.5;
+  min-height: 100vh;
+  position: relative;
+}
+body::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 75%;
+  background: url('../images/bg-top.svg') no-repeat center/cover;
+  z-index: -1;
+}
+body::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 25%;
+  height: 75%;
+  background: url('../images/bg-bottom.svg') no-repeat center/cover;
+  z-index: -1;
+}
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.header{
+  /* padding: 2rem; */
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.header>h1{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--grayish-blue);
+}
+.toggle{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2rem;
+  gap: 1rem;
+  color: var(--light-grayish-blue);
+}
+.toggle input[type="checkbox"]{
+  display: none;
+}
+.slide{
+  width: 3.5rem;
+  height: 100%;
+  background-color: var(--light-grayish-blue);
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+}
+.slide::after{
+  content: '';
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+.hidden{
+  display: none !important;
+}
+#toggle:checked + .slide{
+  background-color: var(--dark-grayish-blue);
+}
+#toggle:checked + .slide::after{
+  /* left: 4px;
+  right: auto; */
+  transform: translateX(calc(-2rem + 8px));
+}
+.pricing-options{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-self: center;
+}
+.pricing-options>.option{
+  height: 70vh;
+  background: white;
+  color: var(--dark-grayish-blue);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.pricing-options>.option:nth-child(2){
+  background: var(--LinearGradient);
+  transform: scale(1.05);
+  color: white;
+}
+.pricing-options>.option>.head{
+  border-bottom: 1px solid hsl(0deg 0% 89.8%);
+  padding-bottom: 1rem ;
+}
+.pricing-options>.option:nth-child(2)>.head p{
+    border-bottom-color: 1px solid hsl(236.17deg 78.33% 76.47%);
+}
+.pricing-options>.option>.head>.price span{
+  font-size: 3rem !important;
+  font-weight: 700;
+  display: block;
+  padding: 0.5rem 0;
+}
+.pricing-options>.option>p{
+  font-size: 0.9rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid hsl(0deg 0% 89.8%);
+}
+.btn{
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  font-weight: 400;
+  cursor: pointer;
+  background-image: var(--LinearGradient);
+  color: white;
+  margin-top: 2rem;
+  font-size: small;
+  transition: border 0.2s ease-in-out;
+  border: 1px solid white;
+}
+.pricing-options>.option:nth-child(2) .btn{
+  background: white;
+  color: var(--dark-grayish-blue);
+  font-weight: 700;
+}
+.pricing-options>.option:nth-child(2) .btn:hover{
+
+  color:var(--very-light-grayish-blue);
+
+}
+.btn:hover{
+  border: 1px solid var(--light-grayish-blue);
+  background-image: none;
+  background-color: transparent !important;
+  color: var(--dark-grayish-blue);
+}
+/* Breakpoints like Bootstrap */
+@media (max-width: 480px) {
+  .pricing-options{
+    gap: 2rem;
+  }
+  .pricing-options>.option:nth-child(2){
+    transform: scale(1);
+  }
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+  
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+  
+}
+
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+
+  
+}
