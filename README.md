@@ -39,7 +39,7 @@ Users should be able to:
 
 ### 🔗 Links
 - **Solution URL:** [Frontend Mentor Solution](https://www.frontendmentor.io/solutions/)
-- **Live Site URL:** [Live Demo](https://your-live-site-url.com)
+- **Live Site URL:** [Live Demo](https://zyadelshopaky.github.io/Pricing-component-with-toggle/)
 
 ---
 
